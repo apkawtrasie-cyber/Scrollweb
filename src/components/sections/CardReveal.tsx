@@ -319,9 +319,9 @@ export default function CardReveal() {
 
       <div ref={pinRef} className="relative h-screen w-full overflow-hidden flex items-center justify-center py-12 sm:py-16">
 
-        {/* ── Neon background glow from photo center to section edges ── */}
+        {/* ── Neon background glow - reduced, only center around photo ── */}
         <div className="absolute inset-0 pointer-events-none" style={{
-          background: "radial-gradient(circle at 50% 50%, rgba(57,255,20,0.08) 0%, rgba(57,255,20,0.04) 30%, rgba(57,255,20,0.02) 60%, transparent 100%)",
+          background: "radial-gradient(circle at 50% 50%, rgba(57,255,20,0.05) 0%, rgba(57,255,20,0.02) 20%, transparent 50%)",
         }} />
 
         {/* ── Photo + asymmetric neon glow ── */}
