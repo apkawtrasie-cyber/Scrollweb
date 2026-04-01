@@ -226,14 +226,23 @@ export default function CardReveal() {
     const covering = getCovering(m);
     const exploded = getExploded(vw, vh);
 
+    // Random size variations: 2 cards +20%, 1 card +10%
+    const randomIndices = new Set<number>();
+    while (randomIndices.size < 3) randomIndices.add(Math.floor(Math.random() * 7));
+    const plus20 = Array.from(randomIndices).slice(0, 2);
+    const plus10 = Array.from(randomIndices).slice(2, 3);
+
     // Set initial covering positions (each card at its own size)
     cards.forEach((card, i) => {
+      const scale = plus20.includes(i) ? 1.2 : plus10.includes(i) ? 1.1 : 1;
+      const w = sizes[i].w * scale;
+      const h = sizes[i].h * scale;
       gsap.set(card, {
-        x: covering[i].x - sizes[i].w / 2,
-        y: covering[i].y - sizes[i].h / 2,
+        x: covering[i].x - w / 2,
+        y: covering[i].y - h / 2,
         zIndex: covering[i].z,
-        width: sizes[i].w,
-        height: sizes[i].h,
+        width: w,
+        height: h,
         scale: 1,
         opacity: 1,
       });
@@ -273,6 +282,11 @@ export default function CardReveal() {
   return (
     <section ref={sectionRef} className="relative">
       <div ref={pinRef} className="relative h-screen w-full overflow-hidden flex items-center justify-center">
+
+        {/* ── Neon background glow from photo center to section edges ── */}
+        <div className="absolute inset-0 pointer-events-none" style={{
+          background: "radial-gradient(circle at 50% 50%, rgba(57,255,20,0.08) 0%, rgba(57,255,20,0.04) 30%, rgba(57,255,20,0.02) 60%, transparent 100%)",
+        }} />
 
         {/* ── Photo + asymmetric neon glow ── */}
         <div ref={photoRef} className="absolute inset-0 flex items-center justify-center">
