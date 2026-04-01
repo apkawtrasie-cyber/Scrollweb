@@ -295,6 +295,13 @@ export default function CardReveal() {
 
   return (
     <section ref={sectionRef} className="relative">
+      {/* Section header */}
+      <div className="relative z-10 text-center px-6 sm:px-8 md:px-12 py-16 sm:py-20 md:py-24">
+        <h2 className="font-display text-text-main text-[clamp(1.2rem,4vw,2rem)] uppercase leading-[1.2] tracking-wide">
+          Twoja marka zasługuje na coś więcej niż szablonowe rozwiązania.
+        </h2>
+      </div>
+
       <div ref={pinRef} className="relative h-screen w-full overflow-hidden flex items-center justify-center py-8 sm:py-12">
 
         {/* ── Neon background glow from photo center to section edges ── */}
