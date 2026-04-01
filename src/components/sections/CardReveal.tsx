@@ -286,8 +286,8 @@ export default function CardReveal() {
       const w = sizes[i].w * finalScale;
       const h = sizes[i].h * finalScale;
       
-      // Node.js card: shift 20% left toward center after explosion
-      const nodeShift = i === 6 ? vw * 0.2 : 0;
+      // Node.js card: shift 20% right after explosion (was left, now right)
+      const nodeShift = i === 6 ? -vw * 0.2 : 0;
       // React card: shift 15% right after explosion
       const reactShift = i === 1 ? vw * 0.15 : 0;
       
