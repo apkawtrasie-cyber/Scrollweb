@@ -112,9 +112,9 @@ function getExploded(vw: number, vh: number) {
     ];
   }
 
-  // ── DESKTOP: symmetric spread ──
-  const dx = vw * 0.30;
-  const dy = vh * 0.26;
+  // ── DESKTOP: symmetric spread (10% reduced) ──
+  const dx = vw * 0.27; // 0.30 * 0.9 = 0.27
+  const dy = vh * 0.23; // 0.26 * 0.9 ≈ 0.23
   return [
     { x: -dx,          y: -dy },          // 0: top-left
     { x:  0,            y: -(dy * 1.4) },  // 1: top-center
@@ -236,8 +236,10 @@ export default function CardReveal() {
     cards.forEach((card, i) => {
       // HTML & CSS card +15% size
       const htmlCssScale = i === 0 ? 1.15 : 1;
+      // React card -20% size
+      const reactScale = i === 1 ? 0.8 : 1;
       const randomScale = plus40.includes(i) ? 1.4 : plus30.includes(i) ? 1.3 : 1;
-      const scale = htmlCssScale * randomScale;
+      const scale = htmlCssScale * reactScale * randomScale;
       const w = sizes[i].w * scale;
       const h = sizes[i].h * scale;
       gsap.set(card, {
@@ -268,18 +270,22 @@ export default function CardReveal() {
     cards.forEach((card, i) => {
       // HTML & CSS card +15% size
       const htmlCssScale = i === 0 ? 1.15 : 1;
+      // React card -20% size
+      const reactScale = i === 1 ? 0.8 : 1;
       // Random sizes
       const randomScale = plus40.includes(i) ? 1.4 : plus30.includes(i) ? 1.3 : 1;
-      const finalScale = htmlCssScale * randomScale;
+      const finalScale = htmlCssScale * reactScale * randomScale;
       const w = sizes[i].w * finalScale;
       const h = sizes[i].h * finalScale;
       
       // Node.js card: shift 20% left toward center after explosion
       const nodeShift = i === 6 ? vw * 0.2 : 0;
+      // React card: shift 15% right after explosion
+      const reactShift = i === 1 ? vw * 0.15 : 0;
       
       tl.fromTo(card,
         { x: covering[i].x - w / 2, y: covering[i].y - h / 2, scale: 1 },
-        { x: exploded[i].x - w / 2 - nodeShift, y: exploded[i].y - h / 2, scale: 1, ease: "power2.out", duration: 1, overwrite: "auto" },
+        { x: exploded[i].x - w / 2 - nodeShift + reactShift, y: exploded[i].y - h / 2, scale: 1, ease: "power2.out", duration: 1, overwrite: "auto" },
         0,
       );
     });
