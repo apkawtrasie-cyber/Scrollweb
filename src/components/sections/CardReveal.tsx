@@ -112,9 +112,9 @@ function getExploded(vw: number, vh: number) {
     ];
   }
 
-  // ── DESKTOP: symmetric spread (10% reduced) ──
-  const dx = vw * 0.27; // 0.30 * 0.9 = 0.27
-  const dy = vh * 0.23; // 0.26 * 0.9 ≈ 0.23
+  // ── DESKTOP: symmetric spread (25% reduced total: 10% + 15%) ──
+  const dx = vw * 0.23; // 0.27 * 0.85 ≈ 0.23 (additional 15% reduction)
+  const dy = vh * 0.20; // 0.23 * 0.85 ≈ 0.20 (additional 15% reduction)
   return [
     { x: -dx,          y: -dy },          // 0: top-left
     { x:  0,            y: -(dy * 1.4) },  // 1: top-center
