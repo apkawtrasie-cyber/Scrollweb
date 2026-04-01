@@ -281,7 +281,7 @@ export default function CardReveal() {
 
   return (
     <section ref={sectionRef} className="relative">
-      <div ref={pinRef} className="relative h-screen w-full overflow-hidden flex items-center justify-center">
+      <div ref={pinRef} className="relative h-screen w-full overflow-hidden flex items-center justify-center py-8 sm:py-12">
 
         {/* ── Neon background glow from photo center to section edges ── */}
         <div className="absolute inset-0 pointer-events-none" style={{
