@@ -226,15 +226,15 @@ export default function CardReveal() {
     const covering = getCovering(m);
     const exploded = getExploded(vw, vh);
 
-    // Random size variations: 2 cards +20%, 1 card +10%
+    // Random size variations: 1 card +40%, 1 card +30%
     const randomIndices = new Set<number>();
-    while (randomIndices.size < 3) randomIndices.add(Math.floor(Math.random() * 7));
-    const plus20 = Array.from(randomIndices).slice(0, 2);
-    const plus10 = Array.from(randomIndices).slice(2, 3);
+    while (randomIndices.size < 2) randomIndices.add(Math.floor(Math.random() * 7));
+    const plus40 = Array.from(randomIndices).slice(0, 1);
+    const plus30 = Array.from(randomIndices).slice(1, 2);
 
     // Set initial covering positions (each card at its own size)
     cards.forEach((card, i) => {
-      const scale = plus20.includes(i) ? 1.2 : plus10.includes(i) ? 1.1 : 1;
+      const scale = plus40.includes(i) ? 1.4 : plus30.includes(i) ? 1.3 : 1;
       const w = sizes[i].w * scale;
       const h = sizes[i].h * scale;
       gsap.set(card, {
