@@ -234,7 +234,10 @@ export default function CardReveal() {
 
     // Set initial covering positions (each card at its own size)
     cards.forEach((card, i) => {
-      const scale = plus40.includes(i) ? 1.4 : plus30.includes(i) ? 1.3 : 1;
+      // HTML & CSS card +15% size
+      const htmlCssScale = i === 0 ? 1.15 : 1;
+      const randomScale = plus40.includes(i) ? 1.4 : plus30.includes(i) ? 1.3 : 1;
+      const scale = htmlCssScale * randomScale;
       const w = sizes[i].w * scale;
       const h = sizes[i].h * scale;
       gsap.set(card, {
@@ -263,9 +266,20 @@ export default function CardReveal() {
     });
 
     cards.forEach((card, i) => {
+      // HTML & CSS card +15% size
+      const htmlCssScale = i === 0 ? 1.15 : 1;
+      // Random sizes
+      const randomScale = plus40.includes(i) ? 1.4 : plus30.includes(i) ? 1.3 : 1;
+      const finalScale = htmlCssScale * randomScale;
+      const w = sizes[i].w * finalScale;
+      const h = sizes[i].h * finalScale;
+      
+      // Node.js card: shift 20% left toward center after explosion
+      const nodeShift = i === 6 ? vw * 0.2 : 0;
+      
       tl.fromTo(card,
-        { x: covering[i].x - sizes[i].w / 2, y: covering[i].y - sizes[i].h / 2, scale: 1 },
-        { x: exploded[i].x - sizes[i].w / 2, y: exploded[i].y - sizes[i].h / 2, scale: 1, ease: "power2.out", duration: 1, overwrite: "auto" },
+        { x: covering[i].x - w / 2, y: covering[i].y - h / 2, scale: 1 },
+        { x: exploded[i].x - w / 2 - nodeShift, y: exploded[i].y - h / 2, scale: 1, ease: "power2.out", duration: 1, overwrite: "auto" },
         0,
       );
     });
