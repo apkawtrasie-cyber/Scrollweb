@@ -164,18 +164,18 @@ export default function CardReveal() {
     // Lift cards container above backdrop (z-55 > backdrop z-50)
     container.style.zIndex = "55";
 
-    // Fly card to center at 1.2× scale
+    // Fly card to center at 1.6× scale (60% bigger for readability)
     // x/y position the LEFT/TOP edge; -w/2,-h/2 centers the card at (0,0)
     gsap.to(card, {
       x: -w / 2,
       y: -h / 2,
-      scale: 1.2,
+      scale: 1.6,
       zIndex: 60,
       duration: 0.5,
       ease: "power3.out",
     });
 
-    // Backdrop + close button
+    // Blur backdrop — always visible to focus attention on card
     gsap.to(bd, {
       opacity: 1, duration: 0.35,
       onStart: () => { bd.style.pointerEvents = "auto"; },
