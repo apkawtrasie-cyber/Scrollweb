@@ -125,7 +125,7 @@ export default function SplashScreen() {
         <div ref={topRef} className="absolute top-0 left-0 w-full h-1/2 bg-bg-dark z-10 flex items-end justify-center pb-[2vh]" style={{ willChange: "transform" }}>
           <span
             className="font-display text-neon-green text-[15vw] sm:text-[12vw] md:text-[9vw] uppercase leading-none tracking-wider neon-glow select-none"
-            style={{ fontStyle: "italic", transform: "skewX(-10deg) translateX(-0.1em)" }}
+            style={{ fontStyle: "normal", transform: "none" }}
           >
             Andrzej
           </span>

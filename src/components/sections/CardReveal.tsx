@@ -288,12 +288,23 @@ export default function CardReveal() {
             background: "radial-gradient(ellipse at 65% 55%, rgba(57,255,20,0.06) 0%, transparent 60%)",
             filter: "blur(20px)",
           }} />
-          <div className="relative w-[144px] h-[192px] sm:w-[160px] sm:h-[216px] md:w-[176px] md:h-[240px] rounded-2xl overflow-hidden shadow-2xl">
-            <Image src="/andrzejmich.ch.png" alt="Andrzej Mich" fill className="object-cover"
-              sizes="(max-width: 768px) 144px, 176px" priority />
-            <div className="absolute inset-0 rounded-2xl" style={{
-              boxShadow: "inset 0 0 40px rgba(57,255,20,0.05), 0 0 60px rgba(57,255,20,0.08)",
+          <div className="relative w-[144px] h-[192px] sm:w-[160px] sm:h-[216px] md:w-[176px] md:h-[240px]">
+            {/* Neon glow underneath — bottom edge lighting */}
+            <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-[120%] h-[40%] rounded-full pointer-events-none" style={{
+              background: "radial-gradient(ellipse at 50% 0%, rgba(57,255,20,0.35) 0%, rgba(57,255,20,0.12) 40%, transparent 70%)",
+              filter: "blur(18px)",
             }} />
+            <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-[90%] h-[20%] rounded-full pointer-events-none" style={{
+              background: "radial-gradient(ellipse at 50% 0%, rgba(57,255,20,0.5) 0%, transparent 70%)",
+              filter: "blur(10px)",
+            }} />
+            <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl">
+              <Image src="/andrzejmich.ch.png" alt="Andrzej Mich" fill className="object-cover"
+                sizes="(max-width: 768px) 144px, 176px" priority />
+              <div className="absolute inset-0 rounded-2xl" style={{
+                boxShadow: "inset 0 0 40px rgba(57,255,20,0.05), 0 0 60px rgba(57,255,20,0.08), 0 12px 40px rgba(57,255,20,0.15), 0 4px 16px rgba(57,255,20,0.1)",
+              }} />
+            </div>
           </div>
         </div>
 

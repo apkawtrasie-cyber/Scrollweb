@@ -37,7 +37,7 @@ export default function SkillCard({ skill, index, onClick, ref }: SkillCardProps
       <div
         className="relative rounded-2xl overflow-hidden p-4 sm:p-5 flex flex-col items-center text-center h-full justify-center gap-2"
         style={{
-          background: `radial-gradient(circle at 50% 30%, ${skill.accent}12 0%, transparent 70%), ${skill.cardBg}`,
+          background: `radial-gradient(circle at 50% 30%, ${skill.accent}40 0%, ${skill.accent}18 50%, transparent 80%), ${skill.cardBg}`,
           backdropFilter: "blur(20px)",
           WebkitBackdropFilter: "blur(20px)",
           border: "1px solid rgba(255, 255, 255, 0.55)",
