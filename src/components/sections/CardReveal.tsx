@@ -240,8 +240,10 @@ export default function CardReveal() {
       const reactScale = i === 1 ? 0.8 : 1;
       // Node.js card -20% size
       const nodeScale = i === 6 ? 0.8 : 1;
+      // TypeScript card -5% size
+      const tsScale = i === 5 ? 0.95 : 1;
       const randomScale = plus40.includes(i) ? 1.4 : plus30.includes(i) ? 1.3 : 1;
-      const scale = htmlCssScale * reactScale * nodeScale * randomScale;
+      const scale = htmlCssScale * reactScale * nodeScale * tsScale * randomScale;
       const w = sizes[i].w * scale;
       const h = sizes[i].h * scale;
       gsap.set(card, {
@@ -276,9 +278,11 @@ export default function CardReveal() {
       const reactScale = i === 1 ? 0.8 : 1;
       // Node.js card -20% size
       const nodeScale = i === 6 ? 0.8 : 1;
+      // TypeScript card -5% size
+      const tsScale = i === 5 ? 0.95 : 1;
       // Random sizes
       const randomScale = plus40.includes(i) ? 1.4 : plus30.includes(i) ? 1.3 : 1;
-      const finalScale = htmlCssScale * reactScale * nodeScale * randomScale;
+      const finalScale = htmlCssScale * reactScale * nodeScale * tsScale * randomScale;
       const w = sizes[i].w * finalScale;
       const h = sizes[i].h * finalScale;
       
