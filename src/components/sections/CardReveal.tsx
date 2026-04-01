@@ -296,7 +296,7 @@ export default function CardReveal() {
   return (
     <section ref={sectionRef} className="relative">
       {/* Section header */}
-      <div className="relative z-10 text-center px-8 sm:px-12 md:px-16 py-24 sm:py-32 md:py-40">
+      <div className="relative z-10 text-center px-4 sm:px-12 md:px-16 py-12 sm:py-32 md:py-40">
         <h2 className="font-display text-text-main text-[clamp(1.2rem,4vw,2rem)] uppercase leading-[1.2] tracking-wide">
           Twoja marka zasługuje na coś więcej<br />
           niż szablonowe rozwiązania.
